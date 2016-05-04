@@ -1,9 +1,11 @@
-const STORAGE_KEY = 'todos-vuejs'
-export default {
-  fetch () {
-    return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]')
-  },
-  save (items) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-  }
+export class store {
+    constructor (key) {
+        this.key = key
+    }
+    fetch () {
+        return JSON.parse(window.localStorage.getItem(this.key) || '[]')
+    }
+    save (items) {
+        window.localStorage.setItem(this.key, JSON.stringify(items))
+    }
 }
